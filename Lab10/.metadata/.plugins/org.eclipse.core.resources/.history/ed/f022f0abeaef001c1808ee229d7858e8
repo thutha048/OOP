@@ -1,0 +1,19 @@
+/*import java.sql.Date;
+import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
+
+public class IllegalBirthDayException {
+	Scanner input = new Scanner(System.in);
+	System.out.println("Enter birthday as mm/dd/yyyy: ");
+    String userInput = input.nextLine() ;
+    try {
+        Date date = new SimpleDateFormat("mm/dd/yyyy").parse(userInput);
+        long ageInDays = TimeUnit.DAYS.convert(new Date().getTime() - date.getTime(), TimeUnit.MILLISECONDS);
+        int age = (int) ageInDays / 365;
+        System.out.println(age);
+        break;
+    } catch (Exception ex) {
+        System.out.println("Please enter a valide date");
+    }
+
+}*/

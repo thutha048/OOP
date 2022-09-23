@@ -1,0 +1,38 @@
+
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
+public class demo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Student s = new Student();
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter studentId: ");
+		String id =  sc.nextLine();
+		System.out.println("Enter name: "); String name= sc.nextLine();
+		System.out.println("Enter birthday (dd/mm/yyyy): "); //String birth =sc.nextLine();
+		
+	    while(true) {
+	    	String birth = sc.nextLine() ;
+		    try {
+		        Date date = (Date) new SimpleDateFormat("mm/dd/yyyy").parse(birth);
+		        long ageInDays = TimeUnit.DAYS.convert(date.getTime() - date.getTime(), TimeUnit.MILLISECONDS);
+		        int age = (int) ageInDays / 365;
+		        System.out.println(age);
+		        break;
+		    } catch (Exception ex) {
+		        System.out.println("Please enter a valide date");
+		    }
+		 }
+	    
+	    System.out.println("Enter gpa (from 0 to 4): "); float gpa= Float.parseFloat(sc.nextLine());
+	
+	}
+
+	
+	
+
+}

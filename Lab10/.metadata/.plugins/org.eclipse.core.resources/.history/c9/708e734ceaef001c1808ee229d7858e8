@@ -1,0 +1,64 @@
+
+import java.io.IOException;
+import java.sql.Date;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
+public class demo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Student s = new Student();
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter studentId: ");
+		String id =  sc.nextLine();
+		System.out.println("Enter name: "); String name= sc.nextLine();
+		
+		System.out.println("Enter birthday (dd/mm/yyyy): ");
+		String birth = sc.nextLine();
+		IllegalBirthDayException(birth);
+		
+	    System.out.println("Enter gpa (from 0 to 4): ");
+	    float gpa= Float.parseFloat(sc.nextLine());
+	    IllegalGPAException(gpa);
+	    
+	    
+	}
+
+	/*private static void IllegalBirthDayException(String birth) {
+		String format = "dd/MM/yyyy";
+		Date date = null;
+		try {
+			SimpleDateFormat sdf = new SimpleDateFormat(format);
+			date= (Date) sdf.parse(birth);
+			if(!birth.equals(sdf.format(date))) {
+				date = null;
+			}
+		}catch(ParseException ex) {
+			ex.printStackTrace();
+		}
+		
+	}*/
+	
+	private static void IllegalGPAException(float gpa) {
+		 if (gpa <0 || gpa >4) 
+			 throw new InputMismatchException("Must from 0 to 4");
+	}
+	
+	private static void IllegalBirthDayException(String birth) {
+		 
+		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+		formatter.setLenient(false);
+		try {
+		    java.util.Date date= formatter.parse(birth);
+		} catch (ParseException e) {
+		    //If input date is in different format or invalid.
+		}
+	}
+	
+
+}
