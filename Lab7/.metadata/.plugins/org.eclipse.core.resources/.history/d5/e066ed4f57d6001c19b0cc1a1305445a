@@ -1,0 +1,21 @@
+package hust.soict.ictglobal.aims.media;
+
+public class Disc extends Media{
+	private float lentgh;
+	private String director;
+	
+	public float getLentgh() {
+		return lentgh;
+	}
+	public void setLentgh(float lentgh) {
+		this.lentgh = lentgh;
+	}
+	public String getDirector() {
+		return director;
+	}
+	public void setDirector(String director) {
+		this.director = director;
+	}
+	
+
+}

@@ -1,0 +1,17 @@
+package hust.soict.ictglobal.aims.media;
+
+public class CompactDisc extends Media{
+	
+	public CompactDisc() {
+		
+	}
+	
+	public CompactDisc(String title, String category, float cost) {
+		super();
+		this.title= title;
+		this.category = category;
+		this.cost =cost;
+	}
+	
+	
+}

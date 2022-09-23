@@ -1,0 +1,23 @@
+package hust.soict.ictglobal.aims.media;
+
+public class Disc extends Media{
+	private int lentgh;
+	private String director;
+	
+	public int getLentgh() {
+		return lentgh;
+	}
+	public void setLentgh(int lentgh) {
+		this.lentgh = lentgh;
+	}
+	public String getDirector() {
+		return director;
+	}
+	public void setDirector(String director) {
+		this.director = director;
+	}
+	
+	public Disc(String id,String tile, String category, float cost) {
+		super();
+	}
+}

@@ -1,0 +1,5 @@
+package hust.soict.ictglobal.aims.media;
+
+public enum IdMedia {
+	Book, DigitalVideoDisc, CompactDisc;
+}
