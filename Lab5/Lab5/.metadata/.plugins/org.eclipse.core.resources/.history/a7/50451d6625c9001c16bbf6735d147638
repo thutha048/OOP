@@ -1,0 +1,16 @@
+import java.util.Arrays;
+public class Aims {
+	public static void main(String[] args) {
+		Order anOrder = new Order();
+		DigitalVideoDisc dvd[]= new DigitalVideoDisc[10];
+		
+		dvd[0]= new DigitalVideoDisc("The Lion King","Animation","Roger Allers",87,19.95f);
+		dvd[1]= new DigitalVideoDisc("Star Wars","Science Fiction","George Lucas",124,24.95f);		
+	    dvd[2]= new DigitalVideoDisc("Aladdin","Animation","John Musker",90, 18.99f);
+
+		anOrder.setDateOrdered("24/04/2022");
+		anOrder.print( anOrder.getDateOrdered(), dvd);
+		System.out.print("Total Cost is: ");
+		System.out.println(anOrder.totalCost());	
+	}
+}

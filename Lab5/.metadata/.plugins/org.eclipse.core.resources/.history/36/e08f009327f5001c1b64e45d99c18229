@@ -1,0 +1,55 @@
+
+public class Order {
+	public static final int MAX_NUMBERS_ORDERED=10;
+	
+	private DigitalVideoDisc itemsOrdered[]= new DigitalVideoDisc[MAX_NUMBERS_ORDERED];
+	private int qtyOrdered=0;
+	
+	public int getQtyOrdered() {
+		return qtyOrdered;
+	}
+
+	public void setQtyOrdered(int qtyOrdered) {
+		this.qtyOrdered = qtyOrdered;
+	}
+
+	public  void addDigitalVideoDisc(DigitalVideoDisc disc) {
+		if(qtyOrdered == MAX_NUMBERS_ORDERED) {
+			System.out.println("The order is almost full\n");
+		}else {
+			itemsOrdered[qtyOrdered]=disc;
+			qtyOrdered++;
+		}
+	//	System.out.println(qtyOrdered);
+	}
+	
+	public void removeDigitalVideoDisc(DigitalVideoDisc disc) {
+		for(int i=0; i< qtyOrdered; i++) {
+			if(disc != itemsOrdered[i])
+				System.out.println("This order doesn't have this disc");
+			else {
+				itemsOrdered[i]=itemsOrdered[i+1];
+				qtyOrdered--;
+				}
+			}
+		System.out.format(disc.getTitle()+" removed.\n");
+	}
+	
+	public float totalCost() {
+		float tCost=0;
+		for(int i=0;i<itemsOrdered.length; i++) {
+			if(itemsOrdered[i] != null)
+				tCost+= itemsOrdered[i].getCost();
+		}
+		return tCost;
+	}
+	
+	public void printDisc(DigitalVideoDisc disc){
+        System.out.println(disc.getTitle() + "- " + disc.getCategory() + "- " + disc.getDirector() + "- " + disc.getCost() + "$ - " + disc.getLength() + "min ");
+    }
+	
+	public void printList() {
+		for(int i=0 ; i< qtyOrdered;i++)
+			printDisc(itemsOrdered[i]);
+	}
+}

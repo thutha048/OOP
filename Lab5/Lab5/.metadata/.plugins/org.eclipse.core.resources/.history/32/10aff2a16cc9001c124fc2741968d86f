@@ -1,0 +1,36 @@
+
+public class DiskTest {
+	public static void main(String[] args) {
+		Order anOrder = new Order();
+		DigitalVideoDisc dvd[]= new DigitalVideoDisc[3];
+		String key;
+		boolean kq;
+		String[] listTitle = new String[3];
+		
+		dvd[0]= new DigitalVideoDisc("Roger Allers","Animation","The Lion King",87,19.95f);
+		dvd[1]= new DigitalVideoDisc("George Lucas","Science Fiction","Star The Wars",124,24.95f);		
+	    dvd[2]= new DigitalVideoDisc("John Musker","Animation","Aladdin",90, 18.99f);
+		
+	    anOrder.setDateOrdered("24/04/2022");
+		anOrder.print( anOrder.getDateOrdered(), dvd);
+
+		for(int i=0;i<dvd.length;i++) {
+			listTitle[i]= dvd[i].getTitle();
+		}
+		
+		key ="Star Wars";
+		kq= DigitalVideoDisc.search(key,listTitle);	
+	    if(kq==true) {
+				System.out.println("Title "+key+" exist in list\n");
+	    }else {
+	    	System.out.println("Title " + key+" doesn't exist in list\n");
+	    }
+	    
+	    //test lucky items
+	    System.out.println("\n\n Random a lucky items: ");
+	    DigitalVideoDisc luckyItem = anOrder.getALuckyItem();
+	    anOrder.printItems(luckyItem,"Your lucky item is: ");
+	   
+	}
+
+}

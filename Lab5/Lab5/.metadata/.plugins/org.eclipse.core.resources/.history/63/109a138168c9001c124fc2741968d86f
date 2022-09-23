@@ -1,0 +1,34 @@
+
+public class DiskTest {
+	public static void main(String[] args) {
+		Order anOrder = new Order();
+		DigitalVideoDisc dvd[]= new DigitalVideoDisc[3];
+		String key= "Star Wars" ;
+		boolean kq;
+		String[] listTitle = new String[3];
+		
+		dvd[0]= new DigitalVideoDisc("Roger Allers","Animation","The Lion King",87,19.95f);
+		dvd[1]= new DigitalVideoDisc("George Lucas","Science Fiction","Star War",124,24.95f);		
+	    dvd[2]= new DigitalVideoDisc("John Musker","Animation","Aladdin",90, 18.99f);
+		
+	    anOrder.setDateOrdered("24/04/2022");
+		anOrder.print( anOrder.getDateOrdered(), dvd);
+		/*System.out.print("Total Cost is: ");
+		System.out.println(anOrder.totalCost());*/
+		
+		System.out.println("NEXT\n");
+		for(int i=0;i<dvd.length;i++) {
+			listTitle[i]= dvd[i].getTitle();
+			System.out.println("ListTitle["+i+"] = "+listTitle[i]);
+		}
+		
+		kq= DigitalVideoDisc.search(key,listTitle);
+		
+		System.out.println("ANS : "+ kq);
+	    if(kq==true) {
+				System.out.println(key+" exist in list\n");
+	    }
+
+}
+
+}

@@ -1,0 +1,109 @@
+
+public class Order {
+	//--------------------------
+	public static final int MAX_LIMITTED_ORDERS =5;
+	private static int nbOrders = 0;
+	//-------------------------
+		
+	private DigitalVideoDisc itemsOrdered[]= new DigitalVideoDisc[MAX_LIMITTED_ORDERS];
+	
+	public int getnbOrders() {
+		return nbOrders;
+	}
+
+	public void setnbOrders(int nbOrders) {
+		this.nbOrders = nbOrders;
+	}
+
+	public  void addDigitalVideoDisc(DigitalVideoDisc disc) {
+		if(nbOrders ==MAX_LIMITTED_ORDERS){
+			System.out.println("Can not exceed max limitted order!\n");
+		}else {
+		
+			itemsOrdered[nbOrders]=disc;
+			nbOrders++;
+		}
+	}
+	
+	public void addDigitalVideoDisc(DigitalVideoDisc [] dvdList) {
+			int newSize = nbOrders + dvdList.length;
+			if(nbOrders== MAX_LIMITTED_ORDERS || newSize >= MAX_LIMITTED_ORDERS) {
+				System.out.println("The order is almost full! Cannot add more!");
+			}else{
+				int j=0;
+				for(int i=nbOrders;i<newSize;i++) {
+					itemsOrdered[i]= dvdList[j];
+					j++;
+					if(j>=dvdList.length)
+						break;
+					nbOrders++;
+				}
+			}
+	}
+	
+	public void addDigitalVideoDisc(DigitalVideoDisc dvd1, DigitalVideoDisc dvd2) {
+		if(MAX_LIMITTED_ORDERS- nbOrders >=1) {
+			itemsOrdered[nbOrders++] = dvd1;
+		}
+		if(MAX_LIMITTED_ORDERS- nbOrders >=1) {
+			itemsOrdered[nbOrders++]=dvd2;
+		}
+	}
+	
+	public void removeDigitalVideoDisc(DigitalVideoDisc disc) {
+		for(int i=0; i< nbOrders; i++) {
+			if(disc != itemsOrdered[i])
+				System.out.println("This order doesn't have this disc");
+			else {
+				itemsOrdered[i]=itemsOrdered[i+1];
+				nbOrders--;
+				}
+			}
+		System.out.format(disc.getTitle()+" removed.\n");
+	}
+	
+	public float totalCost() {
+		float tCost=0;
+		for(int i=0;i<itemsOrdered.length; i++) {
+			if(itemsOrdered[i] != null)
+				tCost+= itemsOrdered[i].getCost();
+		}
+		return tCost;
+	}
+
+	
+	//-----------------------
+		//instance variable
+			private String dateOrdered;
+			public String getDateOrdered() {
+				return dateOrdered;
+			}
+
+			public void setDateOrdered(String dateOrdered) {
+				this.dateOrdered = dateOrdered;
+			}
+	
+			
+	public void print(String date,DigitalVideoDisc [] dvdList) {
+		System.out.println("***********************Order************************");
+		System.out.println("Date: "+date);
+		System.out.println("Ordered Items: ");
+		for(int i=0;i<dvdList.length;i++) {
+			System.out.println((i+1)+". DVD: "+dvdList[i].getTitle()+"- "+dvdList[i].getCategory()+"- "+dvdList[i].getDirector()+"- "+dvdList[i].getLength()+" : "+ dvdList[i].getCost()+"$ \n");
+		}
+		System.out.println("****************************************************");
+	}
+	
+	//-------------------------------
+	public DigitalVideoDisc getALuckyItem() {
+		
+		
+		int luckyIndex=(int)( Math.random()*(nbOrders+1)); // (Math.random()*(max-min+1)+min
+		//System.out.println("Num index= "+luckyIndex);
+		return itemsOrdered[luckyIndex];
+	}
+	
+	public void printItems(String str,DigitalVideoDisc dvd) {
+		System.out.println(str+ dvd.getTitle()+" - "+ dvd.getCategory()+" - "+dvd.getDirector()+" - "+dvd.getLength()+" - "+dvd.getCost()+"$");
+	}
+}

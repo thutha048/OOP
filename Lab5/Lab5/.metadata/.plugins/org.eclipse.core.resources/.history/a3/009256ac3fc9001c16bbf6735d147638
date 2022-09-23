@@ -1,0 +1,47 @@
+
+public class test {
+	public static void main(String []args) {
+			String substr = "My World";
+			
+			String[] title= {"Hello My The World","Hi World"};
+			int exit[] = null;
+			substr = substr.toLowerCase();
+			boolean ans=true;
+			int check=0, num=0;
+			String[] words = substr.split("\\s");
+			for(String w: words) {
+				num++;
+			}
+			System.out.println("Num = "+num);
+			for(int i=1;i<=num;i++) {
+				exit[i]=0;
+			}
+			
+			for(int i=0;i<title.length; i++) {
+				title[i]= title[i].toLowerCase();
+				String key[] = title[i].split("\\s");
+				for(String k:key) {
+					System.out.println(k);
+				}
+				int j=0;
+				for(String w: words) {
+					j++;
+					for(String k: key) {
+						if(w.equals(k)) {
+							exit[j]=1;
+						}
+						//	check=check+1;
+						System.out.println("exit "+ j+ " = "+exit[j]);
+						
+					}
+				}
+			/*	if(check== 3) {
+					ans=true;
+				}else {
+					ans=false;
+				}*/
+				System.out.println("ANS = "+ans);
+			}
+		}
+	}
+
